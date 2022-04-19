@@ -31,8 +31,8 @@ export const Header = () => {
                         <div class="nav-right">
                             <div id="nav-tools">
                                 <Link to="/">Account</Link>
-                                <Link to="/">Log in</Link>
-                                <Link to="/">Cart(0)</Link>
+                                <Link to="/login">Log in</Link>
+                                <Link to="/cart">Cart(0)</Link>
                             </div>
                         </div>
                     </div>
