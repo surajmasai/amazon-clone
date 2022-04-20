@@ -108,5 +108,44 @@
       "price": "$53",
       "category": "book"
     }
+  ],
+
+  "cart": [
+    {
+      "id": 4,
+      "title": "Vileda EasyWring Microfibre Spin Mop & Bucket Floor Cleaning System",
+      "descr": "Pureatic mop bucket adopt advanced self-squeeze technology, provides hands-free washing and keep your hands from dirt. With convenient 2 groove for wet and dry, just only take several seconds wash the mop head in wet",
+      "img": "https://m.media-amazon.com/images/I/61FIZP4EWRL._SY550_.jpg",
+      "categoriesId": 1,
+      "price": "$40",
+      "category": "home"
+    },
+    {
+      "id": 8,
+      "title": "The psychology of Money",
+      "descr": "The highly anticipated sequel to the global bestseller 12 Rules for Life.",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/41r6F2LRf8L._SX323_BO1,204,203,200_.jpg",
+      "categoriesId": 3,
+      "price": "$20",
+      "category": "book"
+    },
+    {
+      "id": 12,
+      "title": "Mi 360° Home Security Camera 1080P ",
+      "descr": "AI motion detection alert. The camera angle is 110 degree and the connectivity is Wi-Fi IEEE 802.11 b/g/n 2.4 GHz. Storage:MicroSD card (support 16GB -64GB, Class 10 and above storage card)",
+      "img": "https://m.media-amazon.com/images/I/61JM7nC4OKL._SY355_.jpg",
+      "categoriesId": 1,
+      "price": "$140",
+      "category": "home"
+    },
+    {
+      "id": 6,
+      "title": "Urbano Fashion ",
+      "descr": "men's dak green printed fir cotton T-shirt ",
+      "img": "https://m.media-amazon.com/images/I/61MOhOlUvdL._AC_UL320_.jpg",
+      "categoriesId": 2,
+      "price": "$35",
+      "category": "fashion"
+    }
   ]
 }

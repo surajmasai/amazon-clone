@@ -1,0 +1,16 @@
+.product-cont{
+    border:2px solid red;
+    width:80%;
+    margin: auto;
+    
+}
+.product-cont1{
+display: grid;
+grid-template-columns: auto auto auto;
+}
+
+.product-cont1>div{
+    align-self: baseline;
+    text-align: center;
+    padding-left: 110px;
+}

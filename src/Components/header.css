@@ -193,8 +193,10 @@ header {
 }
 
 
-#nav-main > a{
+#nav-main > span{
     padding-left: 20px;
     margin-right: 10px;
     font-size: 20px;
+    color: white;
+    cursor: pointer;
 }

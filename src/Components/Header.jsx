@@ -2,7 +2,30 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import "./header.css"
 
+import { useNavigate } from "react-router-dom"
+// import { useDispatch } from 'react-redux';
+// import { catData } from "../redux/Product/action";
+
 export const Header = () => {
+
+    const navigate = useNavigate();
+
+    // const dispatch = useDispatch();
+
+
+
+
+
+    // function filterdata(el) {
+    //     const payload = {
+    //         category: el
+    //     };
+    //     dispatch(catData(payload))
+    //     navigate("/showProduct")
+    // }
+
+
+
     return (
         <div>
             <header id="container">
@@ -37,10 +60,15 @@ export const Header = () => {
                         </div>
                     </div>
                     <div id="nav-main">
-                        <Link to="">Home</Link>
+                        <span onClick={() => navigate(`/showProduct/${'home'}`)}>Home</span>
+                        <span onClick={() => navigate(`/showProduct/${'electronics'}`)}>Electronics</span>
+                        <span onClick={() => navigate(`/showProduct/${'book'}`)}>Book</span>
+                        <span onClick={() => navigate(`/showProduct/${'fashion'}`)}>Fashion</span>
+
+                        {/* <Link to="">Home</Link>
                         <Link to="">Electronics</Link>
                         <Link to="">Book</Link>
-                        <Link to="">Fashion</Link>
+                        <Link to="">Fashion</Link> */}
                     </div>
                 </div>
             </header>
