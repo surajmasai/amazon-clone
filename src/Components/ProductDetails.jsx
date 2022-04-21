@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 
 export const ProductDetails = () => {
 
-    const { id } = useParams();
+    const { id, type } = useParams();
 
     const [details, setDetails] = useState([])
-    // console.log("id", id)
+    console.log("type", type)
     useEffect(() => {
         fetch(`http://localhost:3001/products/${id}`)
             .then(d => d.json())

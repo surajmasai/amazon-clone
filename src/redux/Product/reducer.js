@@ -1,12 +1,15 @@
 import {
     STORE_DATA,
-    // CAT_DATA
+    SEARCH_DATA
 } from "./actionTypes";
 
 
 const initState = {
-    data: []
+    data: [],
+    search: []
 }
+
+
 
 
 const reducer = (state = initState, action) => {
@@ -14,9 +17,10 @@ const reducer = (state = initState, action) => {
         case STORE_DATA:
             return { ...state, data: action.payload }
 
-        // case CAT_DATA:
-        //     return { data: state.data.filter((el) => el.category === action.payload.category) }
-
+        case SEARCH_DATA:
+            const newState = { ...state, search: state.data && state.data.filter((el) => el.title.toLowerCase().includes(action.payload.title.toLowerCase())) };
+            // console.log(newState);
+            return newState;
         default:
             return state;
     }

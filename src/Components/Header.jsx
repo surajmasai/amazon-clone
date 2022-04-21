@@ -1,29 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import "./header.css"
 
 import { useNavigate } from "react-router-dom"
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { catData } from "../redux/Product/action";
+import { searchData } from "../redux/Product/action";
 
 export const Header = () => {
 
     const navigate = useNavigate();
 
-    // const dispatch = useDispatch();
+
+    const [search, setSearch] = useState("")
+
+    // const [searchres, setSearchres] = useState("");
+
+    // const res = useSelector((state) => state.data);
+
+    // useEffect(() => {
+    //     var result = res.filter((product) => {
+    //         if (search === "") {
+    //             return product;
+    //         } else {
+    //             return product.title.toLowerCase().includes(search.toLowerCase()) || product.type.toLowerCase().includes(search.toLocaleLowerCase());
+    //         }
+
+    //     })
+    //     console.log(result)
+    //     // setSearchres(result)
+    // }, [search])
+
+    // console.log(searchres)
+
+    const dispatch = useDispatch()
 
 
+    useEffect(() => {
+        if (search.length > 0) {
+            const payload = {
+                title: search
+            };
+            dispatch(searchData(payload));
+        }
+    }, [search]);
 
-
-
-    // function filterdata(el) {
-    //     const payload = {
-    //         category: el
-    //     };
-    //     dispatch(catData(payload))
-    //     navigate("/showProduct")
-    // }
-
+    // console.log(search)
 
 
     return (
@@ -38,17 +60,17 @@ export const Header = () => {
                         </div>
                         <div class="nav-fill">
                             <div id="nav-search">
-                                <form id="nav-search-bar-form">
+                                <div id="nav-search-bar-form">
                                     <div class="nav-left">
                                         <Link to="">ALL</Link>
                                     </div>
                                     <div class="nav-fill">
-                                        <input type="text" />
+                                        <input type="text" onChange={(e) => setSearch(e.target.value)} />
                                     </div>
                                     <div class="nav-right">
-                                        <button type="submit">Search</button>
+                                        <button onClick={() => navigate('/search')}>Search</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div class="nav-right">
@@ -60,15 +82,10 @@ export const Header = () => {
                         </div>
                     </div>
                     <div id="nav-main">
-                        <span onClick={() => navigate(`/showProduct/${'home'}`)}>Home</span>
-                        <span onClick={() => navigate(`/showProduct/${'electronics'}`)}>Electronics</span>
-                        <span onClick={() => navigate(`/showProduct/${'book'}`)}>Book</span>
-                        <span onClick={() => navigate(`/showProduct/${'fashion'}`)}>Fashion</span>
-
-                        {/* <Link to="">Home</Link>
-                        <Link to="">Electronics</Link>
-                        <Link to="">Book</Link>
-                        <Link to="">Fashion</Link> */}
+                        <span onClick={() => navigate(`/showProduct/${'home'}/${'freashner'}/${'cleaning'}/${'camera'}`)}>Home</span>
+                        <span onClick={() => navigate(`/showProduct/${'electronics'}/${'mobile'}/${'harddisk'}/${'tv'}`)}>Electronics</span>
+                        <span onClick={() => navigate(`/showProduct/${'book'}/${'motivation'}/${'stories'}/${'poem'}`)}>Book</span>
+                        <span onClick={() => navigate(`/showProduct/${'fashion'}/${'shirt'}/${'bag'}/${'scarf'}`)}>Fashion</span>
                     </div>
                 </div>
             </header>

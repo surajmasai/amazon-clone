@@ -7,10 +7,20 @@
 .product-cont1{
 display: grid;
 grid-template-columns: auto auto auto;
+gap:50px;
 }
 
 .product-cont1>div{
     align-self: baseline;
     text-align: center;
-    padding-left: 110px;
+    /* padding-left: 110px;
+     */
+     margin-left:90px;
+}
+
+.btn{
+    justify-content:center
+}
+.Prodimage{
+    object-fit: contain !important ;
 }

@@ -1,9 +1,6 @@
 
 
-import {
-    STORE_DATA
-    // CAT_DATA
-} from './actionTypes';
+import { STORE_DATA, SEARCH_DATA } from './actionTypes';
 
 const storeData = (payload) => ({
     type: STORE_DATA,
@@ -11,10 +8,10 @@ const storeData = (payload) => ({
 })
 
 
-// const catData = (payload) => ({
-//     type: CAT_DATA,
-//     payload: payload
-// })
+const searchData = (payload) => ({
+    type: SEARCH_DATA,
+    payload: payload
+})
 
-export { storeData }
+export { storeData, searchData }
 
