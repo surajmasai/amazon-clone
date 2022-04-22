@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import "./header.css"
 
 import { useNavigate } from "react-router-dom"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { catData } from "../redux/Product/action";
 import { searchData } from "../redux/Product/action";
 
 export const Header = () => {
+
+    const cartdata = useSelector((state) => state.handleCart);
+
 
     const navigate = useNavigate();
 
@@ -77,7 +80,7 @@ export const Header = () => {
                             <div id="nav-tools">
                                 <Link to="/">Account</Link>
                                 <Link to="/login">Log in</Link>
-                                <Link to="/cart">Cart(0)</Link>
+                                <Link to="/cart">Cart({cartdata.length})</Link>
                             </div>
                         </div>
                     </div>

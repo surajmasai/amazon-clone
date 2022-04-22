@@ -1,4 +1,4 @@
-import { ADDITEM, DELITEM } from "./actionTypes"
+import { ADDITEM, DELITEM, DEL_PRODUCT } from "./actionTypes"
 
 export const addCart = (product) => {
 
@@ -14,3 +14,8 @@ export const delCart = (product) => {
         payload: product
     }
 }
+
+
+// export const delProduct = (id) => {
+
+// }

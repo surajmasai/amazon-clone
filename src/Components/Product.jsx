@@ -27,7 +27,7 @@ export const Product = () => {
 
     const navigate = useNavigate()
 
-    const res = useSelector((state) => state.data);
+    const res = useSelector((state) => state.reducer.data);
     // console.log(res)
 
     return (
@@ -72,7 +72,6 @@ export const Product = () => {
                                     <Box width='300px' >
                                         <Card>
                                             <CardMedia
-
                                                 component='img'
                                                 height='280'
                                                 image={data.img}

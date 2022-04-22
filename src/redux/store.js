@@ -1,7 +1,16 @@
 import { reducer } from "./Product/reducer";
 
-import { createStore } from "redux";
+import { handleCart } from "./Cart/reducer"
 
-const store = createStore(reducer);
+import { createStore, combineReducers } from "redux";
+
+
+const mainReducer = combineReducers({
+    reducer,
+    handleCart
+})
+
+const store = createStore(mainReducer);
+
 
 export { store };

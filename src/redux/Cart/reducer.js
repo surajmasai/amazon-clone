@@ -1,10 +1,11 @@
-import { ADDITEM, DELITEM } from "./actionTypes"
+import { ADDITEM, DELITEM, DEL_PRODUCT } from "./actionTypes"
 
 const cart = [];
 
 
 const handleCart = (state = cart, action) => {
 
+    // console.log(state, "jell")
     const product = action.payload;
     switch (action.type) {
 
@@ -13,16 +14,15 @@ const handleCart = (state = cart, action) => {
             const exist = state.find((x) => x.id === product.id);
             if (exist) {
                 //increase the quantity;
-                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty + 1 } : x);
+                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty + 1, final: (x.qty + 1) * x.price } : x);
             } else {
+                // console.log(state, action);
                 const product = action.payload;
-                return [
-                    ...state,
-                    {
-                        ...product,
-                        qty: 1,
-                    }
-                ]
+
+                var result = [...state, { ...product, qty: 1, final: product.price }]
+
+                // console.log(result);
+                return result;
             }
             break;
 
@@ -31,7 +31,7 @@ const handleCart = (state = cart, action) => {
             if (exist1.qty === 1) {
                 return state.filter((x) => x.id !== exist1.id)
             } else {
-                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1 } : x);
+                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1, final: (x.qty - 1) * x.price } : x);
             }
             break;
 
@@ -42,4 +42,4 @@ const handleCart = (state = cart, action) => {
 }
 
 
-export default handleCart;
+export { handleCart };
