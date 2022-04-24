@@ -1,0 +1,43 @@
+.login_cont{
+    /* background-color:green; */
+    width:25%;
+    margin:0 auto;
+    height: 350px;
+    box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0.1);
+    /* cursor: pointer; */
+
+}
+.login{
+    margin: 0 auto;
+}
+
+.login>input{
+    width:80%;
+    margin-left: 45px;
+    height: 40px;
+    outline: none;
+     /* margin-top: 60px; */
+    padding: 5px;
+    font-size: 18px;
+
+} 
+
+.heading1{
+    font-size:18px;
+    text-align: center
+}
+.login>input:nth-child(1) {
+
+    margin-top: 60px;
+
+}
+.login_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.login_btn > button{
+    margin-right: 30px;
+}

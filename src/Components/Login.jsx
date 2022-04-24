@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 // import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import OutlinedInput from '@mui/material/OutlinedInput';
+// import OutlinedInput from '@mui/material/OutlinedInput';
 
 import { userData } from "../redux/Auth/action"
 
 import { useDispatch, useSelector } from "react-redux"
 
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import "./login.css";
+
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -55,24 +57,28 @@ export const Login = () => {
     }
 
     return (
-        <div>
-            <h1>{res === true ? "Logout" : "Login"}</h1>
+        <div >
+            <h4 className="heading1">{res === true ? "Logout" : "Login"}</h4>
 
-            {res === true ? (<Button variant="contained" onClick={handleLogout}>LOGOUT</Button>) : (
+            <div className="login_cont">
 
-                <div>
-                    <OutlinedInput name="email" onChange={handleChange} placeholder="Email" /><br /> <br />
+                {res === true ? (<Button variant="contained" onClick={handleLogout}>LOGOUT</Button>) : (
 
-                    <OutlinedInput name="password" onChange={handleChange} placeholder="password" /><br /> <br />
+                    <div className="login">
+                        <input name="email" onChange={handleChange} placeholder="Email" /><br /> <br />
 
-                    <Stack spacing={2} direction="row">
-                        <Button variant="contained" onClick={handleLogin}>Login</Button>
-                        <Button variant="contained" onClick={() => navigate("/register")}>Register</Button>
-                    </Stack>
-                </div>
+                        <input name="password" onChange={handleChange} placeholder="password" /><br /> <br />
 
-            )}
 
+                        <div className="login_btn">
+                            <Button variant="contained" onClick={handleLogin}>Login</Button>
+                            <Button variant="contained" onClick={() => navigate("/register")}>Register</Button>
+                        </div>
+                    </div>
+
+                )}
+
+            </div>
         </div>
     )
 }

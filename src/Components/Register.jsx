@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import OutlinedInput from '@mui/material/OutlinedInput';
+// import OutlinedInput from '@mui/material/OutlinedInput';
 
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import "./register.css"
 export const Register = () => {
 
     const [form, setForm] = useState({});
@@ -48,17 +49,21 @@ export const Register = () => {
 
     return (
         <div>
-            <h1>Register</h1>
-            <OutlinedInput name="username" onChange={handleChange} placeholder="Username" /><br /> <br />
-            <OutlinedInput name="email" onChange={handleChange} placeholder="Email" /><br /> <br />
-            <OutlinedInput name="password" onChange={handleChange} placeholder="Password" /><br /> <br />
-            <OutlinedInput name="mobile" onChange={handleChange} placeholder="Mobile no." /><br /> <br />
+            <h4 className="heading2">Register</h4>
+            <div className="register_cont">
 
-            <Stack spacing={2} direction="row">
-                <Button variant="contained" onClick={handleregister}>Register</Button>
-                <Button variant="contained" onClick={() => navigate("/login")}>Login</Button>
-            </Stack>
+                <div className="register">
+                    <input name="username" onChange={handleChange} placeholder="Username" /><br /> <br />
+                    <input name="email" onChange={handleChange} placeholder="Email" /><br /> <br />
+                    <input name="password" onChange={handleChange} placeholder="Password" /><br /> <br />
+                    <input name="mobile" onChange={handleChange} placeholder="Mobile no." /><br /> <br />
 
+                    <div className="register_btn">
+                        <Button variant="contained" onClick={handleregister}>Register</Button>
+                        <Button variant="contained" onClick={() => navigate("/login")}>Login</Button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

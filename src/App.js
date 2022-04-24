@@ -2,6 +2,7 @@
 // import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Cart } from './Components/Cart';
+
 import { Header } from './Components/Header';
 import { Home } from './Components/Home';
 import { Login } from './Components/Login';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/search" element={<Search />}></Route>
 
       </Routes>
+
     </div>
   );
 }

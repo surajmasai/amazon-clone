@@ -41,37 +41,30 @@ export const Cart = () => {
 
     return (
         <div>
-            <h1>Cart</h1>
+            <h1 className="heading">Cart</h1>
 
             {
                 cartdata.length === 0 ? (<h1>Cart is empty</h1>) : (
-                    cartdata.map((e) => {
+                    cartdata.map((e, i) => {
                         return (
-                            <div>
+                            <div key={i}>
                                 <div className="cart_cont">
-                                    <img src={e.img} alt={e.title} />
-                                    <h3>{e.title}</h3>
-                                    {/* <button onClick={() => increment(e)}>+</button> */}
-                                    <Button variant="outlined" onClick={() => increment(e)}>+</Button>
-
-                                    <p>{e.qty}</p>
-                                    {/* <button onClick={() => deleteproduct(e)}>-</button> */}
-                                    <Button variant="outlined" onClick={() => deleteproduct(e)}>-</Button>
-
-                                    <span>
-                                        <p>Rs.</p>
-                                        <p>₹{e.price}</p>
-                                    </span>
-                                    <span>
-                                        <p>total Price</p>
-                                        <p> ₹{e.final}</p>
-                                    </span>
-
-                                    {/* <button>delete</button */}
-                                    <Button variant="outlined">Delete</Button>
+                                    <div className="cart_img">
+                                        <img src={e.img} alt={e.title} />
+                                    </div>
+                                    <div className="cart_details">
+                                        <h3>{e.title}</h3>
+                                        <Button variant="outlined" onClick={() => increment(e)}>+</Button>
+                                        <p>{e.qty}</p>
+                                        <Button variant="outlined" onClick={() => deleteproduct(e)}>-</Button>
+                                        <p>MRP. - ₹{e.price}</p>
+                                        <p>Total Price - ₹{e.final}</p>
+                                        <Button variant="outlined">Delete</Button>
+                                    </div>
 
                                 </div>
-                                <hr></hr>
+                                {/* <hr></hr> */}
+
                             </div>
                         )
 
@@ -79,9 +72,7 @@ export const Cart = () => {
                 )
 
             }
-
-            {cartdata.length === 0 ? "" : <h2>Final Amount: ₹{fprice}</h2>}
-
+            {cartdata.length === 0 ? "" : <h2 className="right">Final Amount: ₹{fprice}</h2>}
 
 
         </div>

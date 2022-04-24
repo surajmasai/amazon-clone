@@ -32,7 +32,7 @@ export const Product = () => {
 
     return (
         <div className="product-cont">
-            <h4>sort by cost</h4>
+            <h4 className="sortbycost">sort by cost</h4>
             <Stack spacing={2} direction="row">
                 <Button variant="outlined" onClick={() => setSorting("asc")}>Low To High</Button>
                 <Button variant="outlined" onClick={() => setSorting("desc")}>High To Low</Button>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import { addCart } from "../redux/Cart/action";
@@ -41,10 +41,18 @@ export const ProductDetails = () => {
 
 
 
-
+    const auth = useSelector((state) => state.userReducer.isAuth)
 
     const addProduct = (product) => {
-        dispatch(addCart(product))
+
+        // console.log(auth)
+        if (auth === false) {
+            navigate("/login")
+        } else {
+            dispatch(addCart(product))
+        }
+
+
     }
 
     // fetch("http://localhost:3001/cart", {
@@ -59,18 +67,39 @@ export const ProductDetails = () => {
     //     console.log(err)
     // })
     // console.log(details)
-    return (
-        <div>
-            <img src={product.img} alt={product.title} />
-            <h1>{product.title}</h1>
-            <p>{product.descr}</p>
-            <Stack spacing={2} direction="row">
-                <Button variant="contained" onClick={() => addProduct(product)}>ADD TO CART</Button>
-                <Button variant="contained" onClick={() => navigate("/cart")}>GO TO CART</Button>
-            </Stack>
-            {/* <button onClick={() => addProduct(product)} className="addtocartbtn">ADD TO CART</button>
-            <button>GO TO CART</button> */}
 
+    const divStyle = {
+        display: "flex",
+        width: "60%",
+        margin: "auto",
+        marginTop: "80px",
+        padding: "50px",
+        boxShadow: "0 0 28px 4px rgba(0, 0, 0, 0.1)"
+    }
+
+    const productStyle = {
+        width: "65%",
+        margin: "0 auto",
+        fontSie: "18px",
+        marginTop: "30px",
+    }
+
+
+    return (
+        <div className="productdetails_main" style={divStyle}>
+            <div className="productdetailsimg">
+                <img src={product.img} alt={product.title} width="300px" height="400px" />
+            </div>
+            <div className="productdetails_cont" style={productStyle}>
+                <h1>{product.title}</h1>
+                <h4>Rs. {product.price}</h4>
+                <p>{product.type}</p>
+                <p>{product.descr}</p>
+                <Stack spacing={2} direction="row">
+                    <Button variant="contained" onClick={() => addProduct(product)}>ADD TO CART</Button>
+                    <Button variant="contained" onClick={() => navigate("/cart")}>GO TO CART</Button>
+                </Stack>
+            </div>
         </div>
     )
 }
