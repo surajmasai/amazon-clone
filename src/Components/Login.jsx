@@ -15,6 +15,7 @@ import "./login.css";
 export const Login = () => {
     const navigate = useNavigate()
     const [form, setForm] = useState(null);
+    const [loading, isLoading] = useState(false);
 
     const dispatch = useDispatch()
 
@@ -33,11 +34,16 @@ export const Login = () => {
                 'Content-Type': 'application/json'
             }
         })
+
             .then((res) => res.json())
+
             .then((res) => {
                 // console.log(res)
+                isLoading(true)
+                // console.log("true")
                 dispatch(userData(res))
                 // localStorage.setItem("userdata", JSON.stringify(res));
+                isLoading(false)
                 navigate("/")
             });
     }
@@ -60,6 +66,8 @@ export const Login = () => {
         <div >
             <h4 className="heading1">{res === true ? "Logout" : "Login"}</h4>
 
+            {loading === true ? (<h1>please wait we redireact to home page</h1>) : ""}
+
             <div className="login_cont">
 
                 {res === true ? (<Button variant="contained" onClick={handleLogout}>LOGOUT</Button>) : (
@@ -79,6 +87,7 @@ export const Login = () => {
                 )}
 
             </div>
+
         </div>
     )
 }
